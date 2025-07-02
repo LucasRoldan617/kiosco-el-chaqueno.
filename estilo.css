@@ -1,0 +1,147 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+:root {
+  --primary: #ff6f61;
+  --secondary: #ffcc00;
+  --background: #fefefe;
+  --text: #333;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  color: white;
+}
+
+#Titulo {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  background-color: white;
+  color: var(--primary);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+  border: 2px solid var(--primary);
+}
+
+nav a:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.producto {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 10px var(--card-shadow);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+}
+
+.producto img {
+  max-width: 100%;
+  border-radius: 12px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.producto h3 {
+  margin: 0.5rem 0;
+}
+
+.precio {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #e65b50;
+}
+
+#carrito {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  border: 2px solid var(--primary);
+  padding: 1rem;
+  max-width: 250px;
+  z-index: 100;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#carrito h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+#lista-carrito {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.oculto {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#carrito {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#carrito.oculto {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+}

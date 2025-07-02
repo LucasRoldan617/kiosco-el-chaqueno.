@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Recibo de compra</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <header>
+    <img src="sombrero2.png" alt="Logo" style="width:80px;height:auto;">
+    <h1 id="Titulo">Recibo de compra</h1>
+    <p>Gracias por elegir Kiosco El Chakeño</p>
+  </header>
+  <main style="max-width: 600px; margin: 2rem auto; padding: 1rem; background-color: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <h2>Detalle de la compra:</h2>
+    <ul id="detalle-compra" style="list-style: none; padding: 0;"></ul>
+    <p style="font-weight: bold; font-size: 1.2rem;">Total: $<span id="total">0</span></p>
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      const lista = document.getElementById('detalle-compra');
+      const totalEl = document.getElementById('total');
+
+      let total = 0;
+      carrito.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.nombre + " - $" + item.precio;
+        li.style.padding = "5px 0";
+        lista.appendChild(li);
+        total += item.precio;
+      });
+
+      totalEl.textContent = total;
+    });
+  </script>
+</body>
+</html>
